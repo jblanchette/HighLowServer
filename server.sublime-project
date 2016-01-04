@@ -2,12 +2,13 @@
 	"folders":
 	[
 		{
-			"path": "/C/Users/JeefSSD/Code/HighLowServer"
+			"path": "/C/Users/JeefSSD/Code/HighLow/server"
 		}
 	],
-  "settings": {
-    "ensure_newline_at_eof_on_save": true,
-    "tab_size": 2,
-    "translate_tabs_to_spaces": true
-  }
+	"settings":
+	{
+		"ensure_newline_at_eof_on_save": true,
+		"tab_size": 2,
+		"translate_tabs_to_spaces": true
+	}
 }
