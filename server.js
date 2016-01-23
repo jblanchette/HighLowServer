@@ -3,7 +3,7 @@ var server = restify.createServer();
 var socketio = require("socket.io");
 var io = socketio.listen(server.server);
 
-var SocketManager = require("./lib/SocketManager");
+var SocketManager = require("./lib/SocketManager").instance;
 var GameManager = require("./lib/GameManager");
 var ChatManager = require("./lib/ChatManager");
 var AccountManager = require("./lib/AccountManager");
@@ -22,9 +22,14 @@ io.sockets.on("connection", function (socket) {
 server.listen(8080, function () {
   console.log("Starting server on port 8080");
   console.log("=======================================================\n");
-  SocketManager.createNamespace(AccountManager.getNamespace());
-  SocketManager.createNamespace(GameManager.getNamespace());
-  SocketManager.createNamespace(ChatManager.getNamespace());
+  
+  var accountNsp = AccountManager.setupNamespace();
+  var gameListNsp = GameManager.setupNamespace();
+  var chatNsp = ChatManager.setupNamespace();
+
+  accountNsp.create();
+  gameListNsp.create();
+  chatNsp.create();
 
   console.log("Making games...");
   for (var i = 0; i < 5; i++) {
