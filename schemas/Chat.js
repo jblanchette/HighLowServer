@@ -1,8 +1,9 @@
 module.exports = {
   joinRoom: "JOIN_ROOM",
+  joinGlobalRoom: "JOIN_GLOBAL",
   leaveRoom: "LEAVE_ROOM",
   roomMessage: "ROOM_MSG",
-  memberJoined: "MEMBER_JOINED",
-  memberLeft: "MEMBER_LEFT"
+  userJoined: "USER_JOINED",
+  userLeft: "USER_LEFT"
   // todo: private rooms, admin stuff, ect
 };

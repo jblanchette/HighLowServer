@@ -1,3 +1,4 @@
+var _ = require("lodash");
 var restify = require("restify");
 var server = restify.createServer();
 var socketio = require("socket.io");
@@ -15,7 +16,12 @@ io.sockets.on("connection", function (socket) {
 
 	socket.on("disconnect", function () {
 		console.log("A socket disconnected", socket.id);
-		AccountManager.clearSocketId(socket.id);
+    var disconnectHandlers = SocketManager.getDisconnectHandlers();
+
+    console.log("Running disc handlers: ", disconnectHandlers.length);
+    _.each(disconnectHandlers, function (handler) {
+      handler(socket);
+    });
 	});
 });
 
