@@ -39,7 +39,7 @@ server.listen(8080, function () {
 
   console.log("Making games...");
   for (var i = 0; i < 5; i++) {
-	GameManager.createGame();
+	  GameManager.createGame();
   }
 
   ChatManager.createGlobalRoom();
