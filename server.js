@@ -5,6 +5,7 @@ var socketio = require("socket.io");
 var io = socketio.listen(server.server);
 
 var SocketManager = require("./lib/SocketManager").instance;
+var GameListManager = require("./lib/GameListManager");
 var GameManager = require("./lib/GameManager");
 var ChatManager = require("./lib/ChatManager");
 var AccountManager = require("./lib/AccountManager");
@@ -30,16 +31,18 @@ server.listen(8080, function () {
   console.log("=======================================================\n");
   
   var accountNsp = AccountManager.setupNamespace();
-  var gameListNsp = GameManager.setupNamespace();
+  var gameListNsp = GameListManager.setupNamespace();
+  var gameNsp = GameManager.setupNamespace();
   var chatNsp = ChatManager.setupNamespace();
 
   accountNsp.create();
   gameListNsp.create();
+  gameNsp.create();
   chatNsp.create();
 
   console.log("Making games...");
   for (var i = 0; i < 5; i++) {
-	  GameManager.createGame();
+	  GameListManager.createGame();
   }
 
   ChatManager.createGlobalRoom();
