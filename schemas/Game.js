@@ -7,8 +7,6 @@ module.exports = {
   userLeft: "USER_LEFT",
   userJoined: "USER_JOINED",
   kickMember: "KICK_MEMBER",
-  userReady: "USER_READY",
-  userBusy: "USER_BUSY",
   gameInfo: "GAME_INFO",
   gameStep: "GAME_STEP"
 };
