@@ -8,7 +8,9 @@ module.exports = {
   userJoined: "USER_JOINED",
 	gameList: "GAME_LIST",
   gameInfo: "GAME_INFO",
+  gameNotReady: "GAME_NOT_READY",
   userReady: "USER_READY",
   userBusy: "USER_BUSY",
-	kickMember: "KICK_MEMBER"
+	kickMember: "KICK_MEMBER",
+  roomMsg: "ROOM_MSG"
 };
